@@ -15,14 +15,15 @@ import java.text.DecimalFormat;
 public class TotalRevenueView implements ReceiptObserver {
     private double totalRevenue;
     
-    
-    /**
-     * 
-     */
     public TotalRevenueView(){
     }
     DecimalFormat df = new DecimalFormat("###.###"); // used to round double
     
+    /**
+     * Aggregates the totalRevenue property with the argument and calls the
+     * printTotalRevenuemethod for printing this information
+     * @param revenue the final total of a sale
+     */
     @Override
     public void newRevenue(double revenue){
         this.totalRevenue += revenue;

@@ -16,6 +16,11 @@ public class TotalRevenueFileOutput implements ReceiptObserver {
     private double totalRevenue;
     private FileLogger fileLogger = new FileLogger("revenueLog.txt");
 
+    /**
+     * Aggregates the totalRevenue property with the argument and calls the
+     * logTotalRevenue for logging this information to a file found in the folder
+     * @param revenue is final total of a sale
+     */
     @Override
     public void newRevenue(double revenue) {
         this.totalRevenue += revenue;

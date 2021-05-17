@@ -17,7 +17,10 @@ import java.time.LocalTime;
 public class FileLogger {
     private PrintWriter logStream;
     
-    
+    /**
+     * Creates a logger that can write to a file
+     * @param fileName the name of the log file
+     */
     public FileLogger(String fileName){
         try {
             logStream = new PrintWriter(new FileWriter(fileName), true);
@@ -27,6 +30,10 @@ public class FileLogger {
         }
     }
     
+    /**
+     * Writes to the log file
+     * @param message to be written to the log file
+     */
     public void log(String message) {
         logStream.println(LocalTime.now()+ ": " + message);
     }

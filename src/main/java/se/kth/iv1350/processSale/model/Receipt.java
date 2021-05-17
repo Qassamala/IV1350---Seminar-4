@@ -112,11 +112,11 @@ public class Receipt {
             observer.newRevenue(rev);
         }
     }
-    
-//    public void addReceiptObserver(ReceiptObserver obs) {
-//        receiptObservers.add(obs);
-//    }
-    
+    /**
+     * Provides references of the observing classes to Receipt for implementing
+     * the observer pattern
+     * @param receiptObservers is the list of observing classes
+     */
     public void addReceiptObservers(List<ReceiptObserver> receiptObservers) {
         this.receiptObservers.addAll(receiptObservers);
         notifyObservers();

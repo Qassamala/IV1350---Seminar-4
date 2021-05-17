@@ -14,6 +14,11 @@ import se.kth.iv1350.processSale.integration.ItemNotFoundException;
  */
 public class ErrorMessageHandler {
     
+    /**
+     * Prints a message in a standardized format
+     * @param message containing exception information to be appended 
+     * to a standardized message 
+     */
     public void showErrorMessage(String message){
         System.out.println(LocalTime.now() + ": Error: " + message);
     }
