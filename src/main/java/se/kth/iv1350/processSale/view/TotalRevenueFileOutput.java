@@ -6,6 +6,7 @@
 package se.kth.iv1350.processSale.view;
 
 import se.kth.iv1350.processSale.model.ReceiptObserver;
+import java.text.DecimalFormat;
 
 /**
  * Prints the total revenue to a file
@@ -20,9 +21,10 @@ public class TotalRevenueFileOutput implements ReceiptObserver {
         this.totalRevenue += revenue;
         logTotalRevenue();
     }
+    DecimalFormat df = new DecimalFormat("###.###"); // used to round double
 
     private void logTotalRevenue() {
-        fileLogger.log("Total revenue is now: " + this.totalRevenue);
+        fileLogger.log("Total revenue is now: " + df.format(this.totalRevenue));
     }
     
 }

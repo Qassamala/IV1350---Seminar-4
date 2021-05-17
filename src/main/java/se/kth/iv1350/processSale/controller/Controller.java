@@ -57,13 +57,19 @@ public class Controller {
      * @throws DatabaseNotRunningException is thrown when the the database
      * cannot be reached. This is simulated by providing argument 5 to
      * checkIfItemInInventory
+     * @throws OperationFailedException as a general exception for the end user
+     * if the root cause is a DatabaseNotRunningException
      */
-    public Item addItemToSale(int identifier)throws ItemNotFoundException, DatabaseNotRunningException {
+    public Item addItemToSale(int identifier)throws ItemNotFoundException, DatabaseNotRunningException, OperationFailedException {
         Item item = sale.checkIfItemInSale(identifier);
         
         if(item == null)
         {
-            item = inventory.checkIfItemInInventory(identifier);
+            try{
+                item = inventory.checkIfItemInInventory(identifier);
+            } catch (DatabaseNotRunningException dbne) {
+                throw new OperationFailedException("Could not process request. Check network", dbne);
+            }
         }
 
         if(item != null)

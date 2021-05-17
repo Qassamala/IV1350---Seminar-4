@@ -72,8 +72,8 @@ public class View {
         } catch(ItemNotFoundException itemNotFoundException) {
             errorMessageHandler.showErrorMessage(itemNotFoundException.getMessage());
         } catch(Exception exc) {
-            errorMessageHandler.showErrorMessage("Could not process request.");
-            fileLogger.log("Log for devs: " + exc.getMessage());
+            errorMessageHandler.showErrorMessage(exc.getMessage());
+            fileLogger.log("Log for devs: " + exc.getCause().getMessage());
         }
       
         

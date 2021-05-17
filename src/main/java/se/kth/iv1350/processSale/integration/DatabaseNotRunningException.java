@@ -10,17 +10,17 @@ package se.kth.iv1350.processSale.integration;
  * @author abdig
  */
 public class DatabaseNotRunningException extends Exception {
-    private String databaseName;
+    private String databaseName = "Primary Database";
  
     /**
      * Creates an exception with a a set value for the attribute
      */
-    public DatabaseNotRunningException(){
-        super("The primary database could not be reached.");
-        this.databaseName = "Primary Database";
+    public DatabaseNotRunningException(String databaseName){
+        super("The "+ databaseName + " could not be reached.");
+        this.databaseName = databaseName;
     }
     
-    public String databaseName(){
+    public String getDatabaseName(){
         return this.databaseName;
     }
 }

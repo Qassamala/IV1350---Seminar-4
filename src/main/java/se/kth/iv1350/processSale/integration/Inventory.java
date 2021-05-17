@@ -43,7 +43,7 @@ public class Inventory {
     public Item checkIfItemInInventory(int identifier) throws ItemNotFoundException, DatabaseNotRunningException {
         
         if(identifier == 5)
-            throw new DatabaseNotRunningException();
+            throw new DatabaseNotRunningException("Primary Database");
         
         for(int i = 0; i < items.size(); i++)
         {
