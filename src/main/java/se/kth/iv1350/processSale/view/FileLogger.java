@@ -8,6 +8,7 @@ package se.kth.iv1350.processSale.view;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalTime;
 
 /**
  *
@@ -27,7 +28,7 @@ public class FileLogger {
     }
     
     public void log(String message) {
-        logStream.println(message);
+        logStream.println(LocalTime.now()+ ": " + message);
     }
     
 }

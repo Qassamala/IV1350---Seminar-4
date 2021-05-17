@@ -5,6 +5,7 @@
  */
 package se.kth.iv1350.processSale.view;
 
+import java.time.LocalTime;
 import se.kth.iv1350.processSale.integration.ItemNotFoundException;
 
 /**
@@ -14,7 +15,7 @@ import se.kth.iv1350.processSale.integration.ItemNotFoundException;
 public class ErrorMessageHandler {
     
     public void showErrorMessage(String message){
-        System.out.println("Error: " + message);
+        System.out.println(LocalTime.now() + ": Error: " + message);
     }
     
 }
