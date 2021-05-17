@@ -54,6 +54,9 @@ public class Controller {
      * @return Is either a successfully identified item or null.
      * @throws ItemNotFoundException is thrown when the identifier provided to
      * checkIfItemInInventory is not found in the Inventory.
+     * @throws DatabaseNotRunningException is thrown when the the database
+     * cannot be reached. This is simulated by providing argument 5 to
+     * checkIfItemInInventory
      */
     public Item addItemToSale(int identifier)throws ItemNotFoundException, DatabaseNotRunningException {
         Item item = sale.checkIfItemInSale(identifier);
@@ -75,13 +78,13 @@ public class Controller {
      * Returns the sale's running Total.
      * @return Is the current total amount of the sale.
      */
-    public double getSaleDetails(){
+    public double getRunningTotal(){
         
         return sale.getRunningTotal();
     }
     
     public double endSale(){
-        return this.getSaleDetails();
+        return this.getRunningTotal();
     } 
 
     /**

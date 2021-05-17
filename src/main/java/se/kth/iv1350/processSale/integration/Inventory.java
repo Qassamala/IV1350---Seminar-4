@@ -36,7 +36,9 @@ public class Inventory {
      * @param identifier The value used to find a match in the list of items.
      * @return Is the Item found or null, if it doesn't exist in the list of
      * items.
-     * @throws if the identifier is not found, the exception will be thrown
+     * @throws if the identifier is not found, the ItemNotFoundException is thrown
+     * @throws if the given argument is 5, DatabaseNotRunningException is thrown 
+     * to simulate not being able to reach the fake database
      */
     public Item checkIfItemInInventory(int identifier) throws ItemNotFoundException, DatabaseNotRunningException {
         

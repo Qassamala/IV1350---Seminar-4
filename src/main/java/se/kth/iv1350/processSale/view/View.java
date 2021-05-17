@@ -13,7 +13,7 @@ import se.kth.iv1350.processSale.model.Sale;
  */
 public class View {
     private Controller controller;
-    private FileLogger fileLogger = new FileLogger();
+    private FileLogger fileLogger = new FileLogger("log.txt");
     private ErrorMessageHandler errorMessageHandler = new ErrorMessageHandler();
     
     /**
@@ -24,6 +24,7 @@ public class View {
     public View (Controller controller) {
         this.controller = controller;
         controller.addReceiptObserver(new TotalRevenueView());
+        controller.addReceiptObserver(new TotalRevenueFileOutput());
     }
     DecimalFormat df = new DecimalFormat("###.###"); // used to round double
     
@@ -49,6 +50,17 @@ public class View {
         System.out.println("Entering amount 30 as payment...");
         double change = controller.enterAmountPaid(30);
         System.out.println("Change to give to customer: " + df.format(change));
+        
+        // Testing that total revenue is shown correctly
+        controller.startSale();
+        System.out.println("A new sale has been started.");
+        addItemToSale(1);
+        System.out.println("Ending sale...");
+        System.out.println("Total sum for payment: " + df.format(controller.endSale()));
+        System.out.println("Entering amount 10 as payment...");
+        change = controller.enterAmountPaid(10);
+        System.out.println("Change to give to customer: " + df.format(change));
+        
 
     }
     
@@ -69,7 +81,7 @@ public class View {
         {
             System.out.println("Item description: " + item.getDescription());
             System.out.println("Item price (incl VAT): " + df.format(item.getPrice()* (1 + item.getVATRate())));
-            System.out.println("Running Total is: " + df.format(controller.getSaleDetails()));
+            System.out.println("Running Total is: " + df.format(controller.getRunningTotal()));
         }
     }
 }

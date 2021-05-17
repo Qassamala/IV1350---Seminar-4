@@ -17,9 +17,9 @@ public class FileLogger {
     private PrintWriter logStream;
     
     
-    public FileLogger(){
+    public FileLogger(String fileName){
         try {
-            logStream = new PrintWriter(new FileWriter("log.txt"), true);
+            logStream = new PrintWriter(new FileWriter(fileName), true);
         } catch (IOException ioe) {
             System.out.println("CAN NOT LOG.");
             ioe.printStackTrace();
