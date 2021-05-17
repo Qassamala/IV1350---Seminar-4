@@ -17,6 +17,7 @@ public class ItemNotFoundException extends Exception {
      * @param identifier the provided identifier when searching the Inventory
      */
     public ItemNotFoundException(int identifier){
+        super("The provided identifier " + identifier + ", did not match an existing item.");
         this.identifier = identifier;
     }
     
@@ -25,3 +26,4 @@ public class ItemNotFoundException extends Exception {
     }
     
 }
+

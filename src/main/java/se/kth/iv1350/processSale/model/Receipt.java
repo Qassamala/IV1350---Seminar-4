@@ -18,6 +18,7 @@ public class Receipt {
     private double amountPaid;
     private double change;
     private double VATSale;
+    private List<ReceiptObserver> receiptObservers = new ArrayList<>();
     
     /**
      * Creates a receipt with required info when the sale has been completed. Sets
@@ -102,6 +103,23 @@ public class Receipt {
             else
                 printItems.add(new PrintItem(items.get(i)));
         }
+    }
+
+    private void notifyObservers() {
+        
+        for(ReceiptObserver observer : this.receiptObservers) {
+            double rev = this.sale.getRunningTotal();
+            observer.newRevenue(rev);
+        }
+    }
+    
+//    public void addReceiptObserver(ReceiptObserver obs) {
+//        receiptObservers.add(obs);
+//    }
+    
+    public void addReceiptObservers(List<ReceiptObserver> receiptObservers) {
+        this.receiptObservers.addAll(receiptObservers);
+        notifyObservers();
     }
     
 }

@@ -1,1 +1,1 @@
-Log for devs: 4 was not found in Inventory
+Log for devs: The primary database could not be reached.

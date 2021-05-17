@@ -1,11 +1,15 @@
 package se.kth.iv1350.processSale.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import se.kth.iv1350.processSale.integration.Accounting;
+import se.kth.iv1350.processSale.integration.DatabaseNotRunningException;
 import se.kth.iv1350.processSale.integration.Inventory;
 import se.kth.iv1350.processSale.integration.Item;
 import se.kth.iv1350.processSale.integration.ItemNotFoundException;
 import se.kth.iv1350.processSale.integration.Printer;
 import se.kth.iv1350.processSale.model.Receipt;
+import se.kth.iv1350.processSale.model.ReceiptObserver;
 import se.kth.iv1350.processSale.model.Register;
 import se.kth.iv1350.processSale.model.Sale;
 import se.kth.iv1350.processSale.model.Store;
@@ -22,6 +26,7 @@ public class Controller {
     private Printer printer;
     private Register register;
     private Store store;
+    private List<ReceiptObserver> receiptObservers = new ArrayList<>();
     
     public Controller (Inventory inventory, Accounting accounting, Printer printer, Register register, Store store){
         this.inventory = inventory;
@@ -50,7 +55,7 @@ public class Controller {
      * @throws ItemNotFoundException is thrown when the identifier provided to
      * checkIfItemInInventory is not found in the Inventory.
      */
-    public Item addItemToSale(int identifier)throws ItemNotFoundException {
+    public Item addItemToSale(int identifier)throws ItemNotFoundException, DatabaseNotRunningException {
         Item item = sale.checkIfItemInSale(identifier);
         
         if(item == null)
@@ -106,7 +111,12 @@ public class Controller {
     private void createAndPrintReceipt(double amount, double change)
     {
         Receipt receipt = new Receipt(sale, store, amount, change);
+        receipt.addReceiptObservers(this.receiptObservers);
         printer.print(receipt);
+    }
+    
+    public void addReceiptObserver(ReceiptObserver obs) {
+        this.receiptObservers.add(obs);
     }
     
     

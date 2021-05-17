@@ -23,6 +23,7 @@ public class View {
      */
     public View (Controller controller) {
         this.controller = controller;
+        controller.addReceiptObserver(new TotalRevenueView());
     }
     DecimalFormat df = new DecimalFormat("###.###"); // used to round double
     
@@ -37,6 +38,7 @@ public class View {
         addItemToSale(1);
         addItemToSale(2);
         addItemToSale(4);
+        addItemToSale(5);
         addItemToSale(3);
         
         
@@ -56,11 +58,10 @@ public class View {
         try {
               item = controller.addItemToSale(identifier);
         } catch(ItemNotFoundException itemNotFoundException) {
-            errorMessageHandler.showErrorMessage("The provided identifier " + itemNotFoundException.getIdentifier() + ", did not match an existing item.");
-            fileLogger.log("Log for devs: Identifier: " + itemNotFoundException.getIdentifier() + " was not found in Inventory");
+            errorMessageHandler.showErrorMessage(itemNotFoundException.getMessage());
         } catch(Exception exc) {
-            System.out.println("Caught here as well");  //log
-            fileLogger.log("Logging");
+            errorMessageHandler.showErrorMessage("Could not process request.");
+            fileLogger.log("Log for devs: " + exc.getMessage());
         }
       
         

@@ -38,7 +38,10 @@ public class Inventory {
      * items.
      * @throws if the identifier is not found, the exception will be thrown
      */
-    public Item checkIfItemInInventory(int identifier) throws ItemNotFoundException {
+    public Item checkIfItemInInventory(int identifier) throws ItemNotFoundException, DatabaseNotRunningException {
+        
+        if(identifier == 5)
+            throw new DatabaseNotRunningException();
         
         for(int i = 0; i < items.size(); i++)
         {
