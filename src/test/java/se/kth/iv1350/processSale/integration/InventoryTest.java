@@ -29,15 +29,48 @@ public class InventoryTest {
     }
 
     @Test
-    public void testCheckIfItemInInventory() {
+    public void testCheckIfItemInInventory() throws ItemNotFoundException, DatabaseNotRunningException {
+        Item expResult = new Item(1, 5, 0.1, "Standard Milk", "Vitamin D Enriched Milk.");
+        Item result = null;
+//        result = instanceToTest.checkIfItemInInventory(identifier);
+//        assertEquals(expResult, result, "Expected null, but received an object");
+        int identifier = 1; // does exist
+        try{
+            result = instanceToTest.checkIfItemInInventory(identifier);
+            assertTrue(result.getDescription().contains("Vitamin D Enriched Milk"));
+        } catch(ItemNotFoundException infe) {
+            assertTrue(infe.getMessage().contains("did not match"),"ItemNotFoundException was thrown when object was expected");
+        } catch(DatabaseNotRunningException dnbe) {
+            assertTrue(dnbe.getMessage().contains("not running"),"DatabaseNotRunningException was thrown when object was expected");
+        }
+    }
+    
+    @Test
+    public void testCheckIfItemInInventoryThrowsItemNotFoundException() throws ItemNotFoundException, DatabaseNotRunningException {
+        int identifier = 4; // no such identifier exists
+        Item result = null;
+        try{
+            result = instanceToTest.checkIfItemInInventory(identifier);
+            fail("Nonexisting item was found");
+        } catch(ItemNotFoundException infe) {
+            assertTrue(infe.getMessage().contains("did not match"),"ItemNotFoundException not thrown");
+        }
+        
+    }
+    
+    @Test
+    public void testCheckIfItemInInventoryThrowsDatabaseNotRunningException() throws ItemNotFoundException, DatabaseNotRunningException {
         int identifier = 5; // no such identifier exists
         Item expResult = null;
-        Item result = instanceToTest.checkIfItemInInventory(identifier);
-        assertEquals(expResult, result, "Expected null, but received an object");
+        Item result = null;
+        try{
+            result = instanceToTest.checkIfItemInInventory(identifier);
+            fail("Exception was not thrown, because item was found");
+        } catch(DatabaseNotRunningException dbne) {
+            assertTrue(dbne.getMessage().contains("could not be reached"),"DatabaseNotRunningException not thrown");
+        }
         
-        identifier = 1; // does exist
-        result = instanceToTest.checkIfItemInInventory(identifier);
-        assertNotNull(result, "Received null but expected an object");
     }
+    
     
 }

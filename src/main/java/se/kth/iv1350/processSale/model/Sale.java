@@ -72,7 +72,7 @@ public class Sale {
      * , calculating the net price of each item and adding it to the runningTotal
      * and adding this to the runningTotal
      */
-    public void setRunningTotal(double runningTotal){
+    private void setRunningTotal(double runningTotal){
         
         this.runningTotal = runningTotal;
     }

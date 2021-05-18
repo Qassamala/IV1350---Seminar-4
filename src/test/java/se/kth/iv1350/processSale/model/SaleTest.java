@@ -10,8 +10,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import se.kth.iv1350.processSale.integration.DatabaseNotRunningException;
 import se.kth.iv1350.processSale.integration.Inventory;
 import se.kth.iv1350.processSale.integration.Item;
+import se.kth.iv1350.processSale.integration.ItemNotFoundException;
 
 /**
  *
@@ -36,7 +38,7 @@ public class SaleTest {
     }
 
     @Test
-    public void testCheckIfItemInSale() {
+    public void testCheckIfItemInSale() throws ItemNotFoundException, DatabaseNotRunningException {
         int identifier = 1; // no such identifier exists
         Item expResult = null;
         Item result = instanceToTest.checkIfItemInSale(identifier);
@@ -49,7 +51,7 @@ public class SaleTest {
     }
 
     @Test
-    public void testAddItemToSale() {
+    public void testAddItemToSale() throws ItemNotFoundException, DatabaseNotRunningException {
         
         int identifier = 2;
         Item item = helperInstance.checkIfItemInInventory(identifier);
@@ -62,7 +64,7 @@ public class SaleTest {
     }
 
     @Test
-    public void testSetRunningTotal() {
+    public void testgetRunningTotal() throws ItemNotFoundException, DatabaseNotRunningException {
         //Adding the first item
         double oldRunningTotal = 0;
         int identifier = 2;
@@ -72,7 +74,7 @@ public class SaleTest {
         Item i = helperInstance.checkIfItemInInventory(identifier);
         double expectedPrice = 0 + (i.getPrice() * (1+i.getVATRate()));
         
-        instanceToTest.setRunningTotal();
+        instanceToTest.getRunningTotal();
         double result = instanceToTest.getRunningTotal();
         
         assertTrue(expectedPrice == result, "First item added. Expected price is: " + expectedPrice + ", but was: " + result);
@@ -83,9 +85,8 @@ public class SaleTest {
         instanceToTest.addItemToSale(item);
         
         i = helperInstance.checkIfItemInInventory(identifier);
-        expectedPrice = (instanceToTest.getRunningTotal()) + (i.getPrice() * (1+i.getVATRate()));
+        expectedPrice += (i.getPrice() * (1+i.getVATRate()));
         
-        instanceToTest.setRunningTotal();
         result = instanceToTest.getRunningTotal();
         
         assertTrue(expectedPrice == result, "Second item added. Expected price is: " + expectedPrice + ", but was: " + result);
@@ -93,14 +94,13 @@ public class SaleTest {
     }
 
     @Test
-    public void testCalculateChange() {
+    public void testCalculateChange() throws ItemNotFoundException, DatabaseNotRunningException {
         double amount = 30;
         
         int identifier = 1;
         Item item = helperInstance.checkIfItemInInventory(identifier);
         instanceToTest.addItemToSale(item);
         
-        instanceToTest.setRunningTotal();
         double saleTotal = instanceToTest.getRunningTotal();
         double expResult = amount - saleTotal;
         

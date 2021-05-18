@@ -22,7 +22,7 @@ public class TotalRevenueView implements ReceiptObserver {
     /**
      * Aggregates the totalRevenue property with the argument and calls the
      * printTotalRevenuemethod for printing this information
-     * @param revenue the final total of a sale
+     * @param revenue is final total of a sale
      */
     @Override
     public void newRevenue(double revenue){

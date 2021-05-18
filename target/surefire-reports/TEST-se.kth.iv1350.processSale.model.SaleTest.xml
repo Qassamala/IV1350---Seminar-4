@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.kth.iv1350.processSale.model.SaleTest" time="0.002" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.kth.iv1350.processSale.model.SaleTest" time="0.001" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale\target\test-classes;C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale\target\classes;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\abdig\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\abdig\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns\target\test-classes;C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns\target\classes;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\abdig\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\abdig\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -16,9 +16,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\abdig\AppData\Local\Temp\surefire11915297985734563072\surefirebooter7977823415847580364.jar C:\Users\abdig\AppData\Local\Temp\surefire11915297985734563072 2021-05-06T20-54-42_552-jvmRun1 surefire5563347914793035190tmp surefire_015691894591372945810tmp"/>
+    <property name="sun.java.command" value="C:\Users\abdig\AppData\Local\Temp\surefire1841092801334955091\surefirebooter3795811425068282824.jar C:\Users\abdig\AppData\Local\Temp\surefire1841092801334955091 2021-05-18T10-39-26_894-jvmRun1 surefire13365414133607797175tmp surefire_017093303984511961787tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale\target\test-classes;C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale\target\classes;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\abdig\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\abdig\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns\target\test-classes;C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns\target\classes;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\abdig\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\abdig\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\abdig\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\abdig"/>
     <property name="user.language" value="en"/>
@@ -26,12 +26,12 @@
     <property name="java.version.date" value="2020-04-14"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-14.0.1"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale"/>
+    <property name="basedir" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\abdig\AppData\Local\Temp\surefire11915297985734563072\surefirebooter7977823415847580364.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\abdig\AppData\Local\Temp\surefire1841092801334955091\surefirebooter3795811425068282824.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.1+7"/>
@@ -46,7 +46,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\abdig\AppData\Local\Temp\"/>
     <property name="java.version" value="14.0.1"/>
-    <property name="user.dir" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 3\Implementation\ProcessSale"/>
+    <property name="user.dir" value="C:\Users\abdig\Desktop\KTH\Objektorienterad design\Seminar 4\Exceptions and Design Patterns"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -58,7 +58,7 @@
     <property name="java.class.version" value="58.0"/>
   </properties>
   <testcase name="testCalculateChange" classname="se.kth.iv1350.processSale.model.SaleTest" time="0"/>
-  <testcase name="testSetRunningTotal" classname="se.kth.iv1350.processSale.model.SaleTest" time="0"/>
-  <testcase name="testAddItemToSale" classname="se.kth.iv1350.processSale.model.SaleTest" time="0.001"/>
-  <testcase name="testCheckIfItemInSale" classname="se.kth.iv1350.processSale.model.SaleTest" time="0.001"/>
+  <testcase name="testgetRunningTotal" classname="se.kth.iv1350.processSale.model.SaleTest" time="0"/>
+  <testcase name="testAddItemToSale" classname="se.kth.iv1350.processSale.model.SaleTest" time="0"/>
+  <testcase name="testCheckIfItemInSale" classname="se.kth.iv1350.processSale.model.SaleTest" time="0"/>
 </testsuite>
