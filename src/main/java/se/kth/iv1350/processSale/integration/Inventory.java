@@ -10,14 +10,19 @@ import se.kth.iv1350.processSale.model.Sale;
  */
 public class Inventory {
     private List<Item> items = new ArrayList<Item>();
+    private static final Inventory INSTANCE = new Inventory();
     
     /**
      * Creates a new instance of the system's inventory. This is called from
      * startup. This is called once from startup and it creates an inventory 
      * of items.
      */
-    public Inventory(){
+    private Inventory(){
         addItemsToInventory();
+    }
+    
+    public static Inventory getInventory(){
+        return INSTANCE;
     }
     
     public List<Item> getItems(){

@@ -19,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Inventory inventory = new Inventory();
+        Inventory inventory = Inventory.getInventory();
         Accounting accounting = new Accounting();
         Printer printer = new Printer();
         Register register = new Register();

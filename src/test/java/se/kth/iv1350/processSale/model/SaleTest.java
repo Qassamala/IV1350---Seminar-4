@@ -27,7 +27,7 @@ public class SaleTest {
     @BeforeEach
     public void setUp() {
         
-        helperInstance = new Inventory();
+        helperInstance = Inventory.getInventory();
         instanceToTest = new Sale();
     }
     

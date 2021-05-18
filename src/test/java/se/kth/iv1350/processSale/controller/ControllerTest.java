@@ -32,7 +32,7 @@ public class ControllerTest {
     
     @BeforeEach
     public void setUp() {
-        Inventory inventory = new Inventory();
+        Inventory inventory = Inventory.getInventory();
         Accounting accounting = new Accounting();
         Printer printer = new Printer();
         Register register = new Register();

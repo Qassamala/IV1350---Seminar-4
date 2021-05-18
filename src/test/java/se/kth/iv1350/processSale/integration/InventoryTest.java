@@ -21,7 +21,7 @@ public class InventoryTest {
     
     @BeforeEach
     public void setUp() {
-        instanceToTest = new Inventory();
+        instanceToTest = Inventory.getInventory();
     }
     
     @AfterEach
