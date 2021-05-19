@@ -46,7 +46,7 @@ public class PrintItem {
         }  
         
         /**
-         * This is used to create a string of the values of Printitem
+         * This is used to create a string of the values of PrintItem
          * @return The printItems values that should be printed
          */
         public String toString() { 

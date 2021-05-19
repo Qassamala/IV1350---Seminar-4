@@ -50,12 +50,19 @@ public class Inventory {
         if(identifier == 5)
             throw new DatabaseNotRunningException("Primary Database");
         
-        for(int i = 0; i < items.size(); i++)
+        for(Item item : this.items)
         {
-            Item item = items.get(i);
             if(item.getIdentifier() == identifier)
-                return item;
+                return new Item(item);
         }
+        
+        
+//        for(int i = 0; i < items.size(); i++)
+//        {
+//            Item item = items.get(i);
+//            if(item.getIdentifier() == identifier)
+//                return new Item(item);
+//        }
         throw new ItemNotFoundException(identifier);
     }
 

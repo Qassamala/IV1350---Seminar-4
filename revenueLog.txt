@@ -1,2 +1,2 @@
-13:44:38.026595400: Total revenue is now: 22,22
-13:44:38.034600800: Total revenue is now: 27,72
+16:07:36.338221400: Total revenue is now: 19,998
+16:07:36.345222700: Total revenue is now: 24,899

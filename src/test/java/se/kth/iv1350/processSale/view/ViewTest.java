@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import se.kth.iv1350.processSale.controller.Controller;
 import se.kth.iv1350.processSale.integration.Accounting;
+import se.kth.iv1350.processSale.integration.DiscountRegistry;
 import se.kth.iv1350.processSale.integration.Inventory;
 import se.kth.iv1350.processSale.integration.Printer;
 import se.kth.iv1350.processSale.model.Register;
@@ -29,7 +30,8 @@ public class ViewTest {
         Printer printer = new Printer();
         Register register = new Register();
         Store store = new Store();
-        Controller controller = new Controller(inventory, accounting, printer, register, store);
+        DiscountRegistry discountRegistry = DiscountRegistry.getInstance();
+        Controller controller = new Controller(inventory, accounting, printer, register, store, discountRegistry);
         instanceToTest = new View(controller);
         
         printoutBuffer = new ByteArrayOutputStream();

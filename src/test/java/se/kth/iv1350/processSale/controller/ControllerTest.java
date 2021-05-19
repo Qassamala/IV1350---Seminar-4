@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import se.kth.iv1350.processSale.integration.Accounting;
 import se.kth.iv1350.processSale.integration.DatabaseNotRunningException;
+import se.kth.iv1350.processSale.integration.DiscountRegistry;
 import se.kth.iv1350.processSale.integration.Inventory;
 import se.kth.iv1350.processSale.integration.Item;
 import se.kth.iv1350.processSale.integration.ItemNotFoundException;
@@ -37,7 +38,8 @@ public class ControllerTest {
         Printer printer = new Printer();
         Register register = new Register();
         Store store = new Store();
-        controllerInstanceToTest = new Controller(inventory, accounting, printer, register, store);
+        DiscountRegistry discountRegistry = DiscountRegistry.getInstance();
+        controllerInstanceToTest = new Controller(inventory, accounting, printer, register, store, discountRegistry);
         controllerInstanceToTest.startSale();
     }
     

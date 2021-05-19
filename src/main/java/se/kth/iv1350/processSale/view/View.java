@@ -1,7 +1,9 @@
 package se.kth.iv1350.processSale.view;
 
 import java.text.DecimalFormat;
+import java.util.List;
 import se.kth.iv1350.processSale.controller.Controller;
+import se.kth.iv1350.processSale.integration.Discount;
 import se.kth.iv1350.processSale.integration.Item;
 import se.kth.iv1350.processSale.integration.ItemNotFoundException;
 import se.kth.iv1350.processSale.model.Sale;
@@ -42,7 +44,8 @@ public class View {
         addItemToSale(5);
         addItemToSale(3);
         
-        
+        System.out.println("Discount requested.");
+        discountRequest(3);
       
         System.out.println("Ending sale...");
         System.out.println("Total sum for payment: " + df.format(controller.endSale()));
@@ -55,6 +58,9 @@ public class View {
         controller.startSale();
         System.out.println("A new sale has been started.");
         addItemToSale(1);
+        
+        System.out.println("Discount requested.");
+        discountRequest(2);
         System.out.println("Ending sale...");
         System.out.println("Total sum for payment: " + df.format(controller.endSale()));
         System.out.println("Entering amount 10 as payment...");
@@ -82,6 +88,18 @@ public class View {
             System.out.println("Item description: " + item.getDescription());
             System.out.println("Item price (incl VAT): " + df.format(item.getPrice()* (1 + item.getVATRate())));
             System.out.println("Running Total is: " + df.format(controller.getRunningTotal()));
+        }
+    }
+    
+    private void discountRequest(int customerId)
+    {
+        List<Discount> discounts = controller.getCustomerDiscounts(customerId);
+        
+        if (discounts.isEmpty()) {
+            System.out.println("No discounts found");
+        } else {
+            System.out.println("Applying found discounts.");
+            controller.applyCustomerDiscounts(discounts);
         }
     }
 }

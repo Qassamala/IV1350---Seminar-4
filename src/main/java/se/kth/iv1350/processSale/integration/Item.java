@@ -29,12 +29,33 @@ public class Item {
         this.description = description;
     }
     
+    /**
+     * Creates a copy of the item, so price can be set
+     * @param item is the item to copy
+     */
+    public Item(Item item)  
+    {  
+        identifier = item.identifier;
+        price = item.price;
+        VATRate = item.VATRate;
+        name = item.name;
+        description = item.description;
+    }
+    
     public int getIdentifier(){
         return this.identifier;
     }
     
     public double getPrice(){
         return this.price;
+    }
+    
+    /**
+     * Should only be called when applying discounts
+     * @param price the new price after discount.
+     */
+    protected void setPrice(double price){
+        this.price = price;
     }
 
     public double getVATRate(){

@@ -2,6 +2,7 @@ package se.kth.iv1350.processSale.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.kth.iv1350.processSale.integration.Discount;
 import se.kth.iv1350.processSale.integration.Item;
 
 /**
@@ -32,7 +33,7 @@ public class Sale {
         {
             Item item = items.get(i);
             if(item.getIdentifier() == identifier)
-                return item;
+                return new Item(item);
         }
         return null;
     }
@@ -85,5 +86,18 @@ public class Sale {
      */
     public double calculateChange(double amount) {
         return amount - this.getRunningTotal();
+    }
+    
+    /**
+     * Comment here, example of polymorphism
+     * @param discounts 
+     */
+    public void applyDiscounts(List<Discount> discounts){
+        
+        for(Discount discount: discounts)
+        {
+            discount.applyDiscount(this.items);
+        }
+        
     }
 }

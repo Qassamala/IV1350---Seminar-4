@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import se.kth.iv1350.processSale.integration.Accounting;
 import se.kth.iv1350.processSale.integration.DatabaseNotRunningException;
+import se.kth.iv1350.processSale.integration.Discount;
+import se.kth.iv1350.processSale.integration.DiscountRegistry;
 import se.kth.iv1350.processSale.integration.Inventory;
 import se.kth.iv1350.processSale.integration.Item;
 import se.kth.iv1350.processSale.integration.ItemNotFoundException;
@@ -27,13 +29,15 @@ public class Controller {
     private Register register;
     private Store store;
     private List<ReceiptObserver> receiptObservers = new ArrayList<>();
+    private DiscountRegistry discountRegistry;
     
-    public Controller (Inventory inventory, Accounting accounting, Printer printer, Register register, Store store){
+    public Controller (Inventory inventory, Accounting accounting, Printer printer, Register register, Store store, DiscountRegistry discountRegistry){
         this.inventory = inventory;
         this.accounting = accounting;
         this.printer = printer;
         this.register = register;
         this.store = store;
+        this.discountRegistry = discountRegistry;
     }
     
     /**
@@ -128,6 +132,15 @@ public class Controller {
         this.receiptObservers.add(obs);
     }
     
+    public void applyCustomerDiscounts(List<Discount> discounts){
+        sale.applyDiscounts(discounts);
+    
+    }
+    
+    public List<Discount> getCustomerDiscounts(int customerId){
+        List<Discount> discounts = discountRegistry.getCustomerDiscounts(customerId);
+        return discounts;
+    }
     
     
 }
