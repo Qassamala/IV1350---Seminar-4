@@ -8,7 +8,8 @@ package se.kth.iv1350.processSale.integration;
 import java.util.List;
 
 /**
- *
+ * This class is a type of Discount that has a different implementation on how
+ * to calculate the new item price after discount
  * @author abdig
  */
 public class ItemDiscount implements Discount {
@@ -34,13 +35,14 @@ public class ItemDiscount implements Discount {
     
     /**
      * implementation of strategy algorithm
-     * @param items 
+     * @param items is the list of items where matching items might exist that
+     * are eligible for a discount and a new price can be calculated and set
      */
     public void applyDiscount(List<Item> items){
         for(Item item: items)
         {
             if(item.getIdentifier() == this.item.getIdentifier())
-                item.setPrice((1-discountRate)* item.getPrice());
+                item.setPrice((1-this.discountRate)* item.getPrice());
         }
     }
 }

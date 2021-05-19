@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Only one instance of DiscountRegistry should exist and is thus created as 
+ * singleton.
  * @author abdig
  */
 public class DiscountRegistry {
@@ -23,6 +24,11 @@ public class DiscountRegistry {
            discounts.add(new SaleDiscount(3, 0.1));
     }
     
+    /**
+     * Returns a list of discounts for a specific customer
+     * @param id is the id of the customer
+     * @return is the list of discounts for a specific customerId
+     */
     public List<Discount> getCustomerDiscounts(int id){
         List<Discount> customerDiscounts = new ArrayList<Discount>();
         for(Discount d : this.discounts)
@@ -35,6 +41,10 @@ public class DiscountRegistry {
         return customerDiscounts;
     }
     
+    /**
+     * Returns the singleton instance of discountRegistry
+     * @return is the single instance of discountRegistry
+     */
     public static DiscountRegistry getInstance(){
         return INSTANCE;
     }

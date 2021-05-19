@@ -6,6 +6,7 @@ import se.kth.iv1350.processSale.model.Sale;
 
 /**
  *  Contains a list of all items that a customer can buy in a retails store.
+ * Should only exist as singleton in the system.
  * @author abdig
  */
 public class Inventory {
@@ -20,7 +21,10 @@ public class Inventory {
     private Inventory(){
         addItemsToInventory();
     }
-    
+    /**
+     * Returns the only instance of the Inventory in the program
+     * @return is the singleton instance of the Inventory
+     */
     public static Inventory getInventory(){
         return INSTANCE;
     }
@@ -39,9 +43,11 @@ public class Inventory {
      * Checks if an item with the same identifier already exists in the sale
      * and returns the Item if found, else null.
      * @param identifier The value used to find a match in the list of items.
-     * @return Is the Item found or null, if it doesn't exist in the list of
+     * @return Is a copy of the Item found or null if it doesn't exist in the
+     * list of
      * items.
-     * @throws if the identifier is not found, the ItemNotFoundException is thrown
+     * @throws if the identifier is not found, the ItemNotFoundException is
+     * thrown
      * @throws if the given argument is 5, DatabaseNotRunningException is thrown 
      * to simulate not being able to reach the fake database
      */

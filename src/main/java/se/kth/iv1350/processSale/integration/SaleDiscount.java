@@ -8,7 +8,8 @@ package se.kth.iv1350.processSale.integration;
 import java.util.List;
 
 /**
- *
+ * This class is a type of Discount that has a different implementation on how
+ * to calculate the new item price after discount
  * @author abdig
  */
 public class SaleDiscount implements Discount {
@@ -30,6 +31,13 @@ public class SaleDiscount implements Discount {
         return this.discountRate;
     }
     
+    /**
+     * Should set a new price for each item in a sale,
+     * according to the discountRate of this
+     * instance
+     * @param items is the list of items that a new price after
+     * discount should be applied to
+     */
     public void applyDiscount(List<Item> items){
         for(Item item: items)
         {

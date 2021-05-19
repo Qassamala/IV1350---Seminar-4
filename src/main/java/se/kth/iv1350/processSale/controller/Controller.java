@@ -127,16 +127,28 @@ public class Controller {
         receipt.addReceiptObservers(this.receiptObservers);
         printer.print(receipt);
     }
-    
+    /**
+     * Is called from the View to add an observer of Receipt
+     * @param obs is the observer to add to a list of observers
+     */
     public void addReceiptObserver(ReceiptObserver obs) {
         this.receiptObservers.add(obs);
     }
     
+    /**
+     * Applies discounts on the customer's sale by calling method in sale.
+     * @param discounts is the list of customer specific discounts
+     */
     public void applyCustomerDiscounts(List<Discount> discounts){
         sale.applyDiscounts(discounts);
     
     }
-    
+    /**
+     * Searches the discountRegistry for possible discounts for a customer
+     * @param customerId is the search criteria for retrieving discounts 
+     * for a specific customer 
+     * @return a list of discounts specific for a customer
+     */
     public List<Discount> getCustomerDiscounts(int customerId){
         List<Discount> discounts = discountRegistry.getCustomerDiscounts(customerId);
         return discounts;

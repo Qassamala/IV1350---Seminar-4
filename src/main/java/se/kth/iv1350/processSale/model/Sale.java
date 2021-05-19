@@ -24,7 +24,7 @@ public class Sale {
      * Checks if an item with the same identifier already exists in the sale
      * and returns the Item if found, else null.
      * @param identifier The value used to find a match in the list of items.
-     * @return Is the Item found or null, if it doesn't exist in the list of
+     * @return Is a copy of the Item found or null if it doesn't exist in the list of
      * items.
      */
     public Item checkIfItemInSale(int identifier){
@@ -47,6 +47,11 @@ public class Sale {
         this.items.add(item);
     }
     
+    /**
+     * Gets the runningTotal of the Sale, by first calling private
+     * methods that calculate it and set it.
+     * @return is the new runningTotal of the Sale
+     */
     public double getRunningTotal(){
         setRunningTotal(calculateRunningTotal());
         return this.runningTotal;
@@ -89,8 +94,11 @@ public class Sale {
     }
     
     /**
-     * Comment here, example of polymorphism
-     * @param discounts 
+     * This method applies polymorphism by dynamically calling different 
+     * implementations of Discount. These implementations utilizes different
+     * algorithms of applying discounts to a sale.
+     * @param discounts the list of discounts, that can contain different shapes
+     * of Discount
      */
     public void applyDiscounts(List<Discount> discounts){
         
