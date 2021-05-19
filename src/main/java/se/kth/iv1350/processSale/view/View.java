@@ -60,7 +60,7 @@ public class View {
         addItemToSale(1);
         
         System.out.println("Discount requested.");
-        discountRequest(2);
+        discountRequest(3);
         System.out.println("Ending sale...");
         System.out.println("Total sum for payment: " + df.format(controller.endSale()));
         System.out.println("Entering amount 10 as payment...");
